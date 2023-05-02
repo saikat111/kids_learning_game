@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="quantum.soft.kids">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9548309190743465~9932750552"/>
+        <activity android:name="quantum.soft.kids.activity.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="quantum.soft.kids.MainActivity"/>
+        <activity android:name="quantum.soft.kids.FruitsActivity"/>
+        <activity android:name="quantum.soft.kids.AlphabetActivity"/>
+        <activity android:name="quantum.soft.kids.NumberActivity"/>
+        <activity android:name="quantum.soft.kids.KnowledgeActivity"/>
+        <activity android:name="quantum.soft.kids.DrawingActivity"/>
+        <activity android:name="quantum.soft.kids.activity.SettingsActivity"/>
+
+        <service
+            android:name="quantum.soft.kids.utilworks.BackgroundSoundService"
+            android:enabled="true" />
+    </application>
+
+
+
+</manifest>

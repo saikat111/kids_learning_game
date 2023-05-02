@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "91812213354",
+    "project_id": "kids-learning-game-e2c03",
+    "storage_bucket": "kids-learning-game-e2c03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91812213354:android:3fd4b9a6b2cd9b6958d013",
+        "android_client_info": {
+          "package_name": "quantum.soft.kids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91812213354-88tdt633427hsbh7tmg47dp1jpsgh1ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHce-PDlq-opHLGKmLT6wa-yWuLgU-HX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91812213354-88tdt633427hsbh7tmg47dp1jpsgh1ik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

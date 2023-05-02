@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kids Learning</string>
+
+  
+    <string name="banner_ad_unit_id">ca-app-pub-9548309190743465/1833347800</string>
+    <string name="google_interstitial">ca-app-pub-9548309190743465/5318169382</string>
+    <string name="google_reward">ca-app-pub-9548309190743465/7397537816</string>
+
+</resources>
