@@ -18,19 +18,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+
 
 import quantum.soft.kids.utilworks.BackgroundSoundService;
 
-public class FruitsActivity extends Activity implements OnClickListener, OnTouchListener, RewardedVideoAdListener {
+public class FruitsActivity extends Activity implements OnClickListener, OnTouchListener {
     private String type = "";
 
     ImageView nextBtn = null;
@@ -38,13 +30,13 @@ public class FruitsActivity extends Activity implements OnClickListener, OnTouch
     ImageView prevBtn = null;
     ImageView itemImage = null;
     ImageView itemName = null;
-    private RewardedVideoAd mRewardedVideoAd;
+
     private int currentPosition = 0;
     private int totalItem = 0;
     private MediaPlayer mediaPlayer = null;
-    private AdView adView;
+
     ResourcePool resourcePool = new ResourcePool();
-    private InterstitialAd interstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +49,13 @@ public class FruitsActivity extends Activity implements OnClickListener, OnTouch
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
 
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
-        loadRewardedVideoAd();
 
-        adView = findViewById(R.id.ad_view);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
 
         Intent svc = new Intent(this, BackgroundSoundService.class);
         svc.putExtra("isPlay", false);
         startService(svc);
 
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(getString(R.string.google_interstitial));
-        loadinterstitilal();
 
-        load1();
 
 
         Bundle bundle = getIntent().getExtras();
@@ -136,10 +118,7 @@ public class FruitsActivity extends Activity implements OnClickListener, OnTouch
 
     }
 
-    private void loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd(getString(R.string.google_reward),
-                new AdRequest.Builder().build());
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -208,7 +187,7 @@ public class FruitsActivity extends Activity implements OnClickListener, OnTouch
         if (count.equals("1111")) {
 
             prefssss.edit().clear().commit();
-            showInterstitial();
+
 
         }
     }
@@ -347,47 +326,18 @@ public class FruitsActivity extends Activity implements OnClickListener, OnTouch
     @Override
     public void onBackPressed() {
 
-        if (mRewardedVideoAd.isLoaded()) {
-            mRewardedVideoAd.show();
-        }else {
-            Intent intent = new Intent(FruitsActivity.this, MainActivity.class);
-            startActivity(intent);
-        }
-    }
-
-    private void loadinterstitilal() {
-        interstitialAd.setAdListener(
-                new AdListener() {
-                    @Override
-                    public void onAdLoaded() {
-//dosomething
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(LoadAdError loadAdError) {
-                        //dosomething
-                    }
-
-                    @Override
-                    public void onAdClosed() {
-                        load1();
-                    }
-                });
-    }
-
-    private void load1() {
-        if (!interstitialAd.isLoading() && !interstitialAd.isLoaded()) {
-            AdRequest adRequest1 = new AdRequest.Builder().build();
-            interstitialAd.loadAd(adRequest1);
-        }
 
     }
+
+
+
+
+
+
 
     @Override
     public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
+
         super.onPause();
     }
 
@@ -397,9 +347,7 @@ public class FruitsActivity extends Activity implements OnClickListener, OnTouch
     @Override
     public void onResume() {
         super.onResume();
-        if (adView != null) {
-            adView.resume();
-        }
+
     }
 
     /**
@@ -407,53 +355,11 @@ public class FruitsActivity extends Activity implements OnClickListener, OnTouch
      */
     @Override
     public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
+
         super.onDestroy();
     }
 
-    private void showInterstitial() {
-        // Show the ad if it's ready. Otherwise toast and restart the game.
-        if (interstitialAd != null && interstitialAd.isLoaded()) {
-            interstitialAd.show();
-        } else {
-//dosomething
-        }
-    }
 
-    @Override
-    public void onRewarded(RewardItem reward) {
-        // Reward the user.
-    }
 
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-    }
 
-    @Override
-    public void onRewardedVideoAdClosed() {
-        Intent intent = new Intent(FruitsActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int errorCode) {
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-    }
 }

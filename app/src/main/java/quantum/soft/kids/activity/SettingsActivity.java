@@ -17,8 +17,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+
 import quantum.soft.kids.R;
 import quantum.soft.kids.utilworks.BackgroundSoundService;
 import quantum.soft.kids.utilworks.PrefClass;
@@ -40,7 +39,7 @@ public class SettingsActivity extends AppCompatActivity {
     ImageView imgShare;
     ImageView sound;
     ImageView music;
-    AdView adView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +53,8 @@ public class SettingsActivity extends AppCompatActivity {
             Window w = getWindow(); // in Activity's onCreate() for instance
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        adView = findViewById(R.id.ad_view);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+
+
 
         SharedPreferences prefs = getSharedPreferences("theme", MODE_PRIVATE);
         name = prefs.getString("name", "default");//"No name defined" is the default value.
@@ -278,9 +276,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
+
         super.onPause();
     }
 
@@ -288,17 +284,13 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        if (adView != null) {
-            adView.resume();
-        }
+
     }
 
     /** Called before the activity is destroyed */
     @Override
     public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
+
         super.onDestroy();
     }
 
