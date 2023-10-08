@@ -395,13 +395,20 @@
                     android:layout_weight="1"
                     android:scaleType="fitXY" />
 
+
             </LinearLayout>
 
 
         </LinearLayout>
 
     </LinearLayout>
-
+    <Button
+        android:id="@+id/p"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:text="Privacy Policy">
+    </Button>
     <include layout="@layout/banner_adds_facebook" />
 
 

@@ -42,12 +42,12 @@ public class SplashActivity extends AppCompatActivity {
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
-        llBackground = findViewById(R.id.llBackground);
+       /* llBackground = findViewById(R.id.llBackground);
         imageView3 = findViewById(R.id.imageView3);
         Glide.with(getApplicationContext())
                 .load(R.drawable.kids_gif)
-                .into(imageView3);
-        textView3 = findViewById(R.id.textView3);
+                .into(imageView3);*/
+        /*textView3 = findViewById(R.id.textView3);
         textView3.setAlpha(0f);
 
 
@@ -63,7 +63,7 @@ public class SplashActivity extends AppCompatActivity {
         imageView3.animate()
                 .translationY(textView3.getHeight())
                 .alpha(1f)
-                .setDuration(800);
+                .setDuration(800);*/
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
